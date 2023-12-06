@@ -6,7 +6,7 @@ self.onmessage = function (event) {
 
 function runGame() {
     for (let i = 1; i <= 5; i++) {
-        const result = fibonacci(i * 100);
+        const result = fibonacci(i * 10);
         postMessage(`Iteration ${i}: Fibonacci Result - ${result}`);
     }
 }
