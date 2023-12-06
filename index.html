@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Worker Example</title>
+</head>
+<body>
+    <button id="startButton">Start</button>
+    <div id="output"></div>
+
+    <script>
+        document.getElementById('startButton').addEventListener('click', startGame);
+
+        function startGame() {
+            const worker = new Worker('worker.js');
+
+            worker.onmessage = function (event) {
+                document.getElementById('output').innerHTML += event.data + '<br>';
+            };
+
+            worker.postMessage('Start');
+        }
+    </script>
+</body>
+</html>
